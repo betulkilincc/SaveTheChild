@@ -12,6 +12,15 @@ public class Player : MonoBehaviour
 
     public bool justDroppedBaby = false;
 
+    public GameSettingsSO gameSettings;
+
+    public float Speed {
+        get{
+            return gameSettings.difficulty == GameSettingsSO.Difficulty.Easy ? 2f :
+            gameSettings.difficulty == GameSettingsSO.Difficulty.Medium ? 1.8f : 1.3f;
+        }
+    }
+
     void Start()
     {
     }
@@ -22,9 +31,9 @@ public class Player : MonoBehaviour
 #region  Movement
         Vector3 final;
         if (Input.GetKey(KeyCode.A))
-            final = new Vector3(-1, 0, 0);
+            final = new Vector3(-Speed, 0, 0);
         else if (Input.GetKey(KeyCode.D))
-            final = new Vector3(1, 0, 0);
+            final = new Vector3(Speed, 0, 0);
         else
             final = new Vector3(0, 0, 0);
         transform.Translate(final * Time.deltaTime);
