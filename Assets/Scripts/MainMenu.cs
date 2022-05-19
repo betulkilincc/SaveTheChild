@@ -11,6 +11,15 @@ public class MainMenu : MonoBehaviour
     public void HelpMenu(){
         SceneManager.LoadScene("Help Menu");
     }
+    public void Story(){
+        SceneManager.LoadScene("Story");
+    }
+    public void Settings(){
+        SceneManager.LoadScene("Settings");
+    }
+    public void Credits(){
+        SceneManager.LoadScene("Credits");
+    }
     public void QuitGame(){
         Debug.Log("Oyundan ciktik");
         Application.Quit();
