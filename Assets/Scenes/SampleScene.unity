@@ -1162,8 +1162,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baby: {fileID: 204666760}
   Cart: {fileID: 333369359}
+  Mom: {fileID: 1656611939}
   justPickedUpBaby: 0
   justDroppedBaby: 0
+  gameSettings: {fileID: 11400000, guid: ef25ec39c8903524381d40fa169864dc, type: 2}
 --- !u!1 &1033363816
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,6 +1415,7 @@ MonoBehaviour:
   bombLeft: -4
   bombRight: 11
   bombY: 4
+  gameSettings: {fileID: 11400000, guid: ef25ec39c8903524381d40fa169864dc, type: 2}
 --- !u!4 &1523247775
 Transform:
   m_ObjectHideFlags: 0

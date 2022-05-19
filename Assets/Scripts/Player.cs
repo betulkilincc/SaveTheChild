@@ -7,10 +7,20 @@ public class Player : MonoBehaviour
     public Baby baby;
 
     public GameObject Cart;
+    public GameObject Mom;
 
     public bool justPickedUpBaby = false;
 
     public bool justDroppedBaby = false;
+
+    public GameSettingsSO gameSettings;
+
+    public float Speed {
+        get{
+            return gameSettings.difficulty == GameSettingsSO.Difficulty.Easy ? 2f :
+            gameSettings.difficulty == GameSettingsSO.Difficulty.Medium ? 1.8f : 1.3f;
+        }
+    }
 
     void Start()
     {
@@ -22,9 +32,9 @@ public class Player : MonoBehaviour
 #region  Movement
         Vector3 final;
         if (Input.GetKey(KeyCode.A))
-            final = new Vector3(-1, 0, 0);
+            final = new Vector3(-Speed, 0, 0);
         else if (Input.GetKey(KeyCode.D))
-            final = new Vector3(1, 0, 0);
+            final = new Vector3(Speed, 0, 0);
         else
             final = new Vector3(0, 0, 0);
         transform.Translate(final * Time.deltaTime);
@@ -53,8 +63,8 @@ public class Player : MonoBehaviour
             justPickedUpBaby = true;
             baby.inTheCart = false;
 
-            baby.gameObject.transform.parent = transform;
-            baby.gameObject.transform.localPosition = new Vector3(0, 2, 0);
+            baby.gameObject.transform.parent = Mom.transform;
+            baby.gameObject.transform.localPosition = new Vector3(0.5f, 0.5f, 0);
 
             StartCoroutine(WaitForBaby());
         }
@@ -73,19 +83,3 @@ public class Player : MonoBehaviour
         justDroppedBaby = false;
     }
 }
-// RaycastHit hit;
-// if (Physics.Raycast(transform.position, transform.forward, out hit))
-// {
-//     if (hit.collider.tag == "Baby")
-//     {
-//         Debug.Log("Raycast worked");
-//         hit.collider.gameObject.GetComponent<Baby>().PickUpBaby();
-//     }
-//     else
-//     {
-//         Debug.Log("tag is not baby");
-//     }
-// }
-// else{
-//     Debug.Log("Raycast did not work");
-// }
