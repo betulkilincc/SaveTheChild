@@ -1162,6 +1162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baby: {fileID: 204666760}
   Cart: {fileID: 333369359}
+  Mom: {fileID: 1656611939}
   justPickedUpBaby: 0
   justDroppedBaby: 0
   gameSettings: {fileID: 11400000, guid: ef25ec39c8903524381d40fa169864dc, type: 2}

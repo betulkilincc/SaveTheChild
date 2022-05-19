@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public Baby baby;
 
     public GameObject Cart;
+    public GameObject Mom;
 
     public bool justPickedUpBaby = false;
 
@@ -62,8 +63,8 @@ public class Player : MonoBehaviour
             justPickedUpBaby = true;
             baby.inTheCart = false;
 
-            baby.gameObject.transform.parent = transform;
-            baby.gameObject.transform.localPosition = new Vector3(0, 2, 0);
+            baby.gameObject.transform.parent = Mom.transform;
+            baby.gameObject.transform.localPosition = new Vector3(0.5f, 0.5f, 0);
 
             StartCoroutine(WaitForBaby());
         }
@@ -82,19 +83,3 @@ public class Player : MonoBehaviour
         justDroppedBaby = false;
     }
 }
-// RaycastHit hit;
-// if (Physics.Raycast(transform.position, transform.forward, out hit))
-// {
-//     if (hit.collider.tag == "Baby")
-//     {
-//         Debug.Log("Raycast worked");
-//         hit.collider.gameObject.GetComponent<Baby>().PickUpBaby();
-//     }
-//     else
-//     {
-//         Debug.Log("tag is not baby");
-//     }
-// }
-// else{
-//     Debug.Log("Raycast did not work");
-// }
