@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public void PlayGame(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        SceneManager.LoadScene("PlayGame");
+        
     }
     public void HelpMenu(){
         SceneManager.LoadScene("Help Menu");
@@ -15,7 +16,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Story");
     }
     public void Settings(){
-        SceneManager.LoadScene("Settings");
+        SceneManager.LoadScene("Settings Menu");
     }
     public void Credits(){
         SceneManager.LoadScene("Credits");
