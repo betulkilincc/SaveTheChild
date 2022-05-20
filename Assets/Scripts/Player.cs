@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public Baby baby;
 
+
     public GameObject Cart;
     public GameObject Mom;
 
@@ -17,13 +18,13 @@ public class Player : MonoBehaviour
 
     public float Speed {
         get{
-            return gameSettings.difficulty == GameSettingsSO.Difficulty.Easy ? 2f :
+            float basespeed =  gameSettings.difficulty == GameSettingsSO.Difficulty.Easy ? 2f :
             gameSettings.difficulty == GameSettingsSO.Difficulty.Medium ? 1.8f : 1.3f;
+            if(!baby.inTheCart)
+                return basespeed * 0.5f;
+            else
+                return basespeed;
         }
-    }
-
-    void Start()
-    {
     }
 
     // Update is called once per frame
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour
     {
 #region  Movement
         Vector3 final;
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && transform.position.x > 0)
             final = new Vector3(-Speed, 0, 0);
         else if (Input.GetKey(KeyCode.D))
             final = new Vector3(Speed, 0, 0);

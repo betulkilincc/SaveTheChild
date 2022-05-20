@@ -8,6 +8,7 @@ public class Baby : MonoBehaviour
     public bool inTheCart = true;
 
     public GameObject HealthBar;
+    public GameObject GameManager;
 
     private int _hp = 100;
 
@@ -20,6 +21,10 @@ public class Baby : MonoBehaviour
         set
         {
             HealthBar.GetComponent<Slider>().value = _hp = value;
+            if (value <= 0)
+            {
+                GameManager.GetComponent<GameManager>().FinishGameLost();
+            }
         }
     }
 

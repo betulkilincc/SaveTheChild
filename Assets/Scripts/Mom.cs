@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Mom : MonoBehaviour
 {
     public GameObject HealthBar;
+    public GameObject GameManager;
 
     private void Start()
     {
@@ -31,6 +32,10 @@ public class Mom : MonoBehaviour
         set
         {
             HealthBar.GetComponent<Slider>().value = _hp = value;
+            if(value<=0)
+            {
+                GameManager.GetComponent<GameManager>().FinishGameLost();
+            }
         }
     }
 }
