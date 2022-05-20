@@ -7,7 +7,7 @@ public class BombGenerator : MonoBehaviour
     public GameObject bombprefab;
     public float bombLeft = -4;
     public float bombRight = 16;
-    public float bombY = 4;
+    public float bombY = 7;
 
     public float BombSpawnRate {
         get{

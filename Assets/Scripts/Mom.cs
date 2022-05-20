@@ -17,7 +17,7 @@ public class Mom : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1);
-            HP-=1;
+            HP-=2;
         }
     }
 

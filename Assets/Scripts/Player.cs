@@ -6,8 +6,8 @@ public class Player : MonoBehaviour
 {
     public Baby baby;
 
-
     public GameObject Cart;
+
     public GameObject Mom;
 
     public bool justPickedUpBaby = false;
@@ -16,11 +16,18 @@ public class Player : MonoBehaviour
 
     public GameSettingsSO gameSettings;
 
-    public float Speed {
-        get{
-            float basespeed =  gameSettings.difficulty == GameSettingsSO.Difficulty.Easy ? 2f :
-            gameSettings.difficulty == GameSettingsSO.Difficulty.Medium ? 1.8f : 1.3f;
-            if(!baby.inTheCart)
+    public float Speed
+    {
+        get
+        {
+            float basespeed =
+                gameSettings.difficulty == GameSettingsSO.Difficulty.Easy
+                    ? 2f
+                    : gameSettings.difficulty ==
+                    GameSettingsSO.Difficulty.Medium
+                        ? 1.8f
+                        : 1.3f;
+            if (!baby.inTheCart)
                 return basespeed * 0.5f;
             else
                 return basespeed;
@@ -50,9 +57,8 @@ public class Player : MonoBehaviour
             baby.inTheCart = true;
 
             baby.gameObject.transform.parent = Cart.transform;
-            baby.gameObject.transform.localPosition = new Vector3(0.047f,0.72f,0);
-            baby.gameObject.transform.eulerAngles = new Vector3(0,0,104.08f);
-
+            baby.gameObject.transform.localPosition =
+                new Vector3(0.047f, 0.72f, 0);
             StartCoroutine(WaitForBabyToDrop());
         }
 #endregion
@@ -66,8 +72,8 @@ public class Player : MonoBehaviour
             baby.inTheCart = false;
 
             baby.gameObject.transform.parent = Mom.transform;
-            baby.gameObject.transform.localPosition = new Vector3(0.08f, 0.05f, 0);
-            baby.gameObject.transform.eulerAngles = new Vector3(0, 0, 185.3f);
+            baby.gameObject.transform.localPosition =
+                new Vector3(0.08f, 0.05f, 0);
 
             StartCoroutine(WaitForBaby());
         }

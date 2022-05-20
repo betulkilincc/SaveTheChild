@@ -19,7 +19,7 @@ public class Bomb : MonoBehaviour
     {
         if (collision.gameObject.tag == "Mom")
         {
-            collision.gameObject.GetComponent<Mom>().HP -= 10;
+            collision.gameObject.GetComponent<Mom>().HP -= 20;
         }
         //Destroy this game object
         Destroy(gameObject);
