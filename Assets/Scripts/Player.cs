@@ -50,7 +50,8 @@ public class Player : MonoBehaviour
             baby.inTheCart = true;
 
             baby.gameObject.transform.parent = Cart.transform;
-            baby.gameObject.transform.localPosition = new Vector3(0, 1, 0);
+            baby.gameObject.transform.localPosition = new Vector3(0.047f,0.72f,0);
+            baby.gameObject.transform.eulerAngles = new Vector3(0,0,104.08f);
 
             StartCoroutine(WaitForBabyToDrop());
         }
@@ -65,7 +66,8 @@ public class Player : MonoBehaviour
             baby.inTheCart = false;
 
             baby.gameObject.transform.parent = Mom.transform;
-            baby.gameObject.transform.localPosition = new Vector3(0.5f, 0.5f, 0);
+            baby.gameObject.transform.localPosition = new Vector3(0.08f, 0.05f, 0);
+            baby.gameObject.transform.eulerAngles = new Vector3(0, 0, 185.3f);
 
             StartCoroutine(WaitForBaby());
         }
